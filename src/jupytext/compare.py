@@ -375,7 +375,7 @@ def assert_conversion_same_as_mirror(nb_file, fmt, mirror_name, compare_notebook
     if not actual.endswith("\n"):
         actual = actual + "\n"
 
-    if fmt["format_name"] == "marimo":
+    if fmt.get("format_name") != "marimo":
         lines = expected.splitlines()
         lines = [
             f'__generated_with = "{marimo_version()}"' if line == '__generated_with = "0.17.0"' else line for line in lines
